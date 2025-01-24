@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Note</title>
+  </head>
+  <body>
+    <main class="h-screen w-full px-8 bg-gradient-to-br from-blue-500 to-blue-600">
+      <section class="max-w-screen-lg mx-auto py-10">
+        <h1
+          class="text-4xl font-bold uppercase tracking-wider text-white border-b pb-4 mb-4 border-blue-400"
+        >
+          Grab Your thoughts
+        </h1>
+        <button
+          id="addNoteBtn"
+          class="bg-white text-blue-500 px-6 py-2 rounded-md mt-4"
+        >
+          Add Note
+        </button>
+        <div
+          id="notesContainer"
+          class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          
+        </div>
+      </section>
+    </main>
+    <script src="./note.js"></script>
+  </body>
+</html>
