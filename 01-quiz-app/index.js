@@ -110,29 +110,48 @@ function showQuiz() {
       "hover:text-white",
       "duration-300"
     );
-    button.dataset.correct = correct;
+    // button.dataset.correct = correct;
     answerBox.appendChild(button);
-    button.addEventListener("click", handleAnswerClick);
+    // button.addEventListener("click", handleAnswerClick);
+    button.addEventListener("click", () => {
+      handleAnswerClick(button, correct);
+    });
   });
 }
 
-function handleAnswerClick(e) {
-  const button = e.target;
-  button.classList.add(
-    button.dataset.correct === "true" ? "bg-green-500" : "bg-red-500"
-  );
-  if (button.dataset.correct === "true") {
-    score++;
-  } else {
-    Array.from(answerBox.children).forEach((btn) => {
-      btn.dataset.correct === "true" && btn.classList.add("bg-green-500");
-    });
-  }
+function handleAnswerClick(option, answer) {
+  //   const button = e.target;
+  //   button.classList.add(
+  //     button.dataset.correct === "true" ? "bg-green-500" : "bg-red-500"
+  //   );
+  //   if (button.dataset.correct === "true") {
+  //     score++;
+  //   } else {
+  //     Array.from(answerBox.children).forEach((btn) => {
+  //       btn.dataset.correct === "true" && btn.classList.add("bg-green-500");
+  //     });
+  //   }
+  //   [...answerBox.children].forEach((btn) => {
+  //     btn.disabled = true;
+  //     btn.classList.add("cursor-not-allowed");
+  //     btn.classList.remove("hover:bg-gray-800", "hover:text-white");
+  //   });
+  option.classList.add(answer ? "bg-green-500" : "bg-red-500");
+  answer && score++;
+  !answer &&
+    [...answerBox.children].forEach(
+      (btn, index) =>
+        questions[currentQuestion].answers[index].correct &&
+        btn.classList.add("bg-green-500")
+    );
+
   [...answerBox.children].forEach((btn) => {
     btn.disabled = true;
     btn.classList.add("cursor-not-allowed");
     btn.classList.remove("hover:bg-gray-800", "hover:text-white");
   });
+
+  nextButton.classList.remove("hidden");
   nextButton.classList.remove("hidden");
   nextButton.addEventListener("click", handleNextButton);
 }
