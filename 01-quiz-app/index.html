@@ -3,14 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Quiz App</title>
   </head>
   <body>
-    <main>
-        <div class="bg-green-100">
-
+    <main
+      class="h-screen bg-gray-200 flex justify-center items-center text-gray-800 font-serif"
+    >
+      <div class="bg-white w-1/2 rounded-lg p-10">
+        <h1 class="text-2xl font-bold border-b pb-4 mb-4 border-gray-300">
+          Simple Quiz App
+        </h1>
+        <h2 id="question" class="font-semibold mb-4">Question Goes here</h2>
+        <div id="answers" class="flex flex-col gap-4"></div>
+        <div class="flex justify-end">
+          <button
+            id="next"
+            class="bg-blue-500 text-white px-7 py-2 rounded-md mt-4 hidden"
+          >
+            Next
+          </button>
         </div>
+      </div>
     </main>
     <script src="index.js"></script>
   </body>
