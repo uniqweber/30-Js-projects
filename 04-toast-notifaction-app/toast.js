@@ -58,7 +58,6 @@ function showToast(type, message) {
   toastContainer.appendChild(toast);
   activeToasts[type] = toast;
 
-  console.log(activeToasts);
   setTimeout(() => {
     if (position.includes("left-4")) {
       toast.classList.remove("-translate-x-full");
