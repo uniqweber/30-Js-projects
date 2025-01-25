@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Note</title>
+    <style type="text/tailwindcss">
+      .note {
+        @apply bg-white overflow-hidden min-h-44 rounded-md shadow-md relative pb-6;
+      }
+      .note p {
+        @apply w-full h-full outline-none px-4 pt-3;
+      }
+      .note img {
+        @apply w-5 h-5 opacity-50 absolute bottom-2.5 right-2.5 cursor-pointer;
+      }
+      .note img:hover {
+        @apply opacity-100;
+      }
+    </style>
   </head>
   <body>
-    <main class="h-screen w-full px-8 bg-gradient-to-br from-blue-500 to-blue-600">
+    <main
+      class="h-screen w-full px-8 bg-gradient-to-br from-blue-500 to-blue-600"
+    >
       <section class="max-w-screen-lg mx-auto py-10">
         <h1
           class="text-4xl font-bold uppercase tracking-wider text-white border-b pb-4 mb-4 border-blue-400"
@@ -23,9 +39,7 @@
         <div
           id="notesContainer"
           class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-        >
-          
-        </div>
+        ></div>
       </section>
     </main>
     <script src="./note.js"></script>
