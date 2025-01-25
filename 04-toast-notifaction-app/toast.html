@@ -19,10 +19,6 @@
          px-3 flex items-center gap-2 text-sm after:content-[''] after:absolute after:h-2 after:w-full after:bottom-0 after:left-0 transition-all duration-300 shadow-lg border border-gray-300 rounded-md;
       }
 
-      .toast.animate-width {
-        @apply after:w-0;
-      }
-
       .toast i {
         @apply text-xl;
       }
@@ -110,7 +106,7 @@
     </main>
     <div
       id="toastContainer"
-      class="absolute overflow-hidden max-w-xs gap-5  flex flex-col w-full pointer-events-none"
+      class="absolute overflow-hidden max-w-xs gap-5 flex flex-col w-full pointer-events-none"
     ></div>
     <script src="toast.js"></script>
   </body>
