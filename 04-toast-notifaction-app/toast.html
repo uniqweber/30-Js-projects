@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Document</title>
+    <style type="text/tailwindcss">
+      .toast {
+        @apply bg-white relative w-full max-w-xs overflow-hidden pt-2 pb-3.5
+         px-3 flex items-center gap-2 text-sm after:content-[''] after:absolute after:h-2 after:w-full after:bottom-0 after:left-0 transition-all duration-300 shadow-lg border border-gray-300 rounded-md;
+      }
+
+      .toast.animate-width {
+        @apply after:w-0;
+      }
+
+      .toast i {
+        @apply text-xl;
+      }
+
+      .toast.success {
+        @apply after:bg-green-600;
+      }
+
+      .toast.error {
+        @apply after:bg-rose-600;
+      }
+
+      .toast.invalid {
+        @apply after:bg-yellow-600;
+      }
+
+      .toast.success i {
+        @apply text-green-600;
+      }
+
+      .toast.error i {
+        @apply text-rose-600;
+      }
+
+      .toast.invalid i {
+        @apply text-yellow-600;
+      }
+    </style>
+  </head>
+  <body class="relative h-full w-full">
+    <main class="h-screen bg-white flex justify-center items-center gap-4 px-6">
+      <div>
+        <div class="flex gap-4 mb-4 justify-between">
+          <div class="flex gap-4 flex-wrap">
+            <label
+              class="flex items-center gap-2 text-sm uppercase border px-4 py-2 rounded-md select-none cursor-pointer"
+            >
+              <input
+                type="radio"
+                name="position"
+                value="top-4 left-4"
+                checked
+              />
+              Top-Left
+            </label>
+            <label
+              class="flex items-center gap-2 text-sm uppercase border px-4 py-2 rounded-md select-none cursor-pointer"
+            >
+              <input type="radio" name="position" value="top-4 right-4" />
+              Top-Right
+            </label>
+            <label
+              class="flex items-center gap-2 text-sm uppercase border px-4 py-2 rounded-md select-none cursor-pointer"
+            >
+              <input type="radio" name="position" value="bottom-4 left-4" />
+              Bottom-Left
+            </label>
+            <label
+              class="flex items-center gap-2 text-sm uppercase border px-4 py-2 rounded-md select-none cursor-pointer"
+            >
+              <input type="radio" name="position" value="bottom-4 right-4" />
+              Bottom-Right
+            </label>
+          </div>
+        </div>
+        <button
+          id="successToastBtn"
+          class="bg-green-600 text-white px-4 py-2 rounded-md"
+        >
+          Success Toast
+        </button>
+        <button
+          id="errorToastBtn"
+          class="bg-rose-600 text-white px-4 py-2 rounded-md"
+        >
+          Error Toast
+        </button>
+        <button
+          id="invalidToastBtn"
+          class="bg-yellow-600 text-white px-4 py-2 rounded-md"
+        >
+          Invalid Toast
+        </button>
+      </div>
+    </main>
+    <div
+      id="toastContainer"
+      class="absolute overflow-hidden max-w-xs gap-5  flex flex-col w-full pointer-events-none"
+    ></div>
+    <script src="toast.js"></script>
+  </body>
+</html>
