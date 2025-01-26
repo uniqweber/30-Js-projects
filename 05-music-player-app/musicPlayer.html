@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Music Player</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style type="text/tailwindcss">
+      input[type="range"]::-webkit-slider-thumb {
+        @apply appearance-none w-6 h-6 bg-emerald-600  rounded-full shadow-[0_0_5px_rgba(0,0,0,0.1)] shadow-emerald-600/30;
+        border: 5px solid #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="flex flex-col items-center justify-center h-screen bg-white">
+        <div class="w-96 p-10 bg-emerald-600/10 rounded-lg">
+          <nav class="flex justify-between items-center">
+            <i
+              class="fa-solid fa-angle-left w-10 h-10 rounded-full inline-flex items-center justify-center text-emerald-600 shadow-[0_0_5px_rgba(0,0,0,0.1)] shadow-emerald-600/30 bg-white"
+            ></i>
+            <i
+              class="fa-solid fa-bars w-10 h-10 rounded-full inline-flex items-center justify-center text-emerald-600 shadow-[0_0_5px_rgba(0,0,0,0.1)] shadow-emerald-600/30 bg-white"
+            ></i>
+          </nav>
+          <img
+            src="https://picsum.photos/200/300"
+            alt=""
+            class="w-60 h-60 rounded-full my-10 mx-auto border-8 border-white shadow-[0_0_10px_rgba(0,0,0,0.1)] shadow-emerald-600/30"
+          />
+          <h1 class="text-2xl font-bold text-center">Song Name</h1>
+          <h2 class="text-sm text-center text-gray-500 mb-3">Artist Name</h2>
+          <audio
+            id="audio"
+            src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            class="w-full"
+          ></audio>
+          <input
+            id="range"
+            type="range"
+            value="0"
+            class="w-full mb-7 mt-5 appearance-none h-1.5 bg-emerald-600 rounded-lg"
+          />
+          <div class="flex justify-center gap-5 items-center cursor-pointer">
+            <i
+              class="fa-solid fa-backward w-12 h-12 rounded-full inline-flex items-center justify-center text-emerald-600 shadow-[0_0_5px_rgba(0,0,0,0.1)] shadow-emerald-600/30 bg-white"
+            ></i>
+            <i
+              id="play-pause"
+              class="fa-solid fa-play w-16 h-16 rounded-full inline-flex items-center justify-center shadow-[0_0_5px_rgba(0,0,0,0.1)] shadow-emerald-600/30 bg-emerald-600 text-white text-2xl"
+            ></i>
+            <i
+              class="fa-solid fa-forward w-12 h-12 rounded-full inline-flex items-center justify-center text-emerald-600 shadow-[0_0_5px_rgba(0,0,0,0.1)] shadow-emerald-600/30 bg-white"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const audio = document.getElementById("audio");
+      const range = document.getElementById("range");
+      const playPause = document.getElementById("play-pause");
+      const volumeHigh = document.getElementById("volume-high");
+      const volumeLow = document.getElementById("volume-low");
+      playPause.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          playPause.classList.remove("fa-play");
+          playPause.classList.add("fa-pause");
+        } else {
+          audio.pause();
+          playPause.classList.remove("fa-pause");
+          playPause.classList.add("fa-play");
+        }
+      });
+      range.addEventListener("input", () => {
+        audio.currentTime = range.value;
+        range.max = audio.duration;
+      });
+      audio.addEventListener("timeupdate", () => {
+        range.value = audio.currentTime;
+      });
+      audio.addEventListener("ended", () => {
+        audio.currentTime = 0;
+        range.value = 0;
+        playPause.classList.remove("fa-pause");
+        playPause.classList.add("fa-play");
+      });
+    </script>
+  </body>
+</html>
