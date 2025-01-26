@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <main
+      class="flex justify-center items-center h-screen font-mono text-2xl font-bold text-gray-900 bg-gray-950"
+    >
+      <div class="w-80 bg-black p-5 border border-gray-700 rounded-lg">
+        <!-- Main Display -->
+        <div
+          id="display"
+          class="w-full h-24 text-right bg-white text-black rounded-lg p-4 break-all text-[34px] flex items-end justify-end relative"
+        >
+          <span
+            id="showOperator"
+            class="absolute top-0 left-0 text-orange-500 text-xl px-2"
+          ></span>
+        </div>
+        <!-- Buttons -->
+        <div id="buttons" class="grid grid-cols-4 gap-4 mt-4">
+          <button
+            value="C"
+            class="bg-orange-500 text-white rounded-full h-14 w-full col-span-2"
+          >
+            C
+          </button>
+          <button
+            value="D"
+            class="bg-orange-500 text-white rounded-full h-14 w-14"
+          >
+            D
+          </button>
+
+          <button
+            value="/"
+            class="bg-orange-500 text-white rounded-full h-14 w-14"
+          >
+            /
+          </button>
+          <button value="7" class="bg-white rounded-full h-14 w-14">7</button>
+          <button value="8" class="bg-white rounded-full h-14 w-14">8</button>
+          <button value="9" class="bg-white rounded-full h-14 w-14">9</button>
+          <button
+            value="*"
+            class="bg-orange-500 text-white rounded-full h-14 w-14"
+          >
+            *
+          </button>
+          <button value="4" class="bg-white rounded-full h-14 w-14">4</button>
+          <button value="5" class="bg-white rounded-full h-14 w-14">5</button>
+          <button value="6" class="bg-white rounded-full h-14 w-14">6</button>
+          <button
+            value="-"
+            class="bg-orange-500 text-white rounded-full h-14 w-14"
+          >
+            -
+          </button>
+          <button value="1" class="bg-white rounded-full h-14 w-14">1</button>
+          <button value="2" class="bg-white rounded-full h-14 w-14">2</button>
+          <button value="3" class="bg-white rounded-full h-14 w-14">3</button>
+          <button
+            value="+"
+            class="bg-orange-500 text-white rounded-full h-14 w-14"
+          >
+            +
+          </button>
+          <button value="0" class="bg-white rounded-full h-14 w-14">0</button>
+          <button value="." class="bg-white rounded-full h-14 w-14">.</button>
+          <button
+            value="="
+            class="bg-orange-500 rounded-full text-white h-14 w-full col-span-2"
+          >
+            =
+          </button>
+        </div>
+      </div>
+    </main>
+    <script src="caluclator.js"></script>
+  </body>
+</html>
