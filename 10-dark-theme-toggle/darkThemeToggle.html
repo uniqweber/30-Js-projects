@@ -5,14 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Theme Toggle</title>
+    <style>
+      ::root {
+        --bg-color: #f0f0f0;
+        --text-color: #333;
+      }
+      .dark {
+        --bg-color: #333;
+        --text-color: #f0f0f0;
+      }
+      button {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+    </style>
   </head>
   <body
-    class="bg-gray-100 text-black dark:bg-gray-900 dark:text-white transition-all"
+    class="h-screen flex items-center justify-center"
   >
     <div class="container mx-auto p-4">
       <button
         id="theme-toggle"
-        class="bg-gray-700 text-white px-4 py-2 rounded dark:bg-gray-300 dark:text-black"
+        class="border border-gray-300 rounded-md px-4 py-2"
       >
         Toggle Theme
       </button>
