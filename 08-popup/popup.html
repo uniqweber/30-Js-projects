@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Popup</title>
+  </head>
+  <body>
+    <div class="h-screen bg-stone-700 flex items-center justify-center">
+      <div
+        id="popup"
+        class="w-80 h-[242px] absolute -top-10 scale-[0.1] left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-700 opacity-0"
+      >
+        <div
+          class="relative bg-white w-full p-6 border border-gray-700 rounded-lg shadow-lg"
+        >
+          <i
+            class="fa-solid fa-check bg-lime-500 text-white w-16 h-16 rounded-full text-3xl shadow-[0_0_10px_rgba(0,0,0,0.3)] inline-flex items-center justify-center absolute -top-8 left-0 right-0 mx-auto"
+          ></i>
+
+          <h1 class="text-center text-3xl font-bold mt-10">Thank You!</h1>
+          <p class="text-center text-sm text-gray-500 mt-2 mb-6">
+            We have received your message and will get back to you soon.
+          </p>
+          <button
+            id="close-popup"
+            class="bg-lime-500 text-white w-full p-2 rounded-lg"
+          >
+            Ok
+          </button>
+        </div>
+      </div>
+      <button
+        id="open-popup"
+        class="bg-lime-500 shadow-lg text-white rounded-full px-6 py-2 transition-all duration-700"
+      >
+        Open Popup
+      </button>
+    </div>
+    <script>
+      const openPopup = document.getElementById("open-popup");
+      const closePopup = document.getElementById("close-popup");
+      const popup = document.getElementById("popup");
+
+      openPopup.addEventListener("click", () => {
+        popup.classList.remove("-top-10");
+        popup.classList.add("top-1/2");
+        popup.classList.remove("scale-[0.1]");
+        popup.classList.add("scale-[1]");
+        popup.classList.remove("opacity-0");
+        popup.classList.add("opacity-100");
+        openPopup.classList.add("opacity-0");
+      });
+
+      closePopup.addEventListener("click", () => {
+        popup.classList.remove("top-1/2");
+        popup.classList.add("-top-10");
+        popup.classList.remove("scale-[1]");
+        popup.classList.add("scale-[0.1]");
+        popup.classList.remove("opacity-100");
+        popup.classList.add("opacity-0");
+        openPopup.classList.remove("opacity-0");
+      });
+    </script>
+  </body>
+</html>
