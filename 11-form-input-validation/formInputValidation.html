@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8g6g5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g5"
+      crossorigin="anonymous"
+    />
+    <title>Form Input Validation</title>
+    <style type="text/tailwindcss">
+      input {
+        @apply w-full h-10 bg-gray-900 border border-gray-700 rounded-md p-2  text-white focus:outline-none focus:ring-2 focus:ring-blue-500;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="p-4 h-screen bg-gray-900 flex items-center justify-center">
+      <div
+        class="p-5 bg-gray-950 rounded-md border border-gray-800 max-w-md w-full"
+      >
+        <form id="form" class="space-y-2">
+          <input id="name" type="text" placeholder=" Enter your name" />
+          <p id="name-error" class=" text-sm tracking-wide text-red-500"></p>
+          <input id="email" type="email" placeholder=" Enter your email" />
+          <p id="email-error" class=" text-sm tracking-wide text-red-500"></p>
+          <input
+            id="password"
+            type="password"
+            placeholder=" Enter your password"
+          />
+          <p id="password-error" class=" text-sm tracking-wide text-red-500"></p>
+          <input id="number" type="tel" placeholder=" Enter  number" />
+          <p id="number-error" class=" text-sm tracking-wide text-red-500"></p>
+
+          <textarea
+            id="message"
+            placeholder=" Enter  message"
+            class="w-full h-20 bg-gray-900 border border-gray-700 rounded-md p-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+          ></textarea>
+          <p id="message-error" class=" text-sm tracking-wide text-red-500"></p>
+          <button
+            id="submit"
+            type="submit"
+            class="bg-blue-500 text-white w-full px-4 py-2 rounded-md"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </main>
+    <script src="formInputValidation.js"></script>
+  </body>
+</html>
