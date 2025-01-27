@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Image Slider with Tailwind</title>
+    <style type="text/tailwindcss">
+      #slider div {
+        @apply w-full h-full flex-shrink-0 border-2;
+      }
+      #slider img {
+        @apply w-full h-full object-cover rounded-xl;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="h-screen flex items-center justify-center bg-gray-200">
+      <div
+        class="flex items-center justify-center max-w-5xl w-full gap-10 px-10"
+      >
+        <button
+          id="leftButton"
+          class="bg-white h-12 w-12 rounded-full flex-shrink-0 text-blue-600 hover:bg-blue-600 hover:text-white duration-300"
+        >
+          &lArr;
+        </button>
+        <div class="h-96 w-full rounded-xl overflow-hidden">
+          <div
+            id="slider"
+            class="h-full w-full flex transition-transform duration-300 ease-in-out"
+          >
+            <div>
+              <img src="https://picsum.photos/id/237/200/300" alt="" />
+            </div>
+            <div>
+              <img src="https://picsum.photos/id/238/200/300" alt="" />
+            </div>
+            <div>
+              <img src="https://picsum.photos/id/239/200/300" alt="" />
+            </div>
+          </div>
+        </div>
+        <button
+          id="rightButton"
+          class="bg-white h-12 w-12 rounded-full flex-shrink-0 text-blue-600 hover:bg-blue-600 hover:text-white duration-300"
+        >
+          &rArr;
+        </button>
+      </div>
+    </main>
+    <script>
+      const slider = document.getElementById("slider");
+      const leftButton = document.getElementById("leftButton");
+      const rightButton = document.getElementById("rightButton");
+
+      const slides = slider.children.length - 1;
+      let currentSlide = 0;
+
+      function moveSlider(index) {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+      }
+      leftButton.addEventListener("click", () => {
+        if (currentSlide > 0) {
+          currentSlide--;
+        } else {
+          currentSlide = slides - 1;
+        }
+
+        moveSlider(currentSlide);
+      });
+      rightButton.addEventListener("click", () => {
+        if (currentSlide < slides) {
+          currentSlide++;
+        } else {
+          currentSlide = 0;
+        }
+        moveSlider(currentSlide);
+      });
+    </script>
+  </body>
+</html>
