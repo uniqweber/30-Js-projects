@@ -20,23 +20,27 @@
     </style>
   </head>
   <body
-    class="bg-[url('https://picsum.photos/id/37/1920/1080')] bg-cover bg-center h-screen flex items-center justify-center"
+    class="bg-[url('https://picsum.photos/id/37/1920/1080')] px-10 bg-cover bg-center h-screen flex items-center justify-center"
   >
     <div
-      class="bg-white bg-opacity-60 rounded-xl border border-gray-200 p-10 shadow-lg"
+      class="bg-white bg-opacity-60 rounded-xl border max-w-4xl w-full border-gray-200 p-10 shadow-lg"
     >
       <h2 class="text-xl tracking-tight text-gray-800 font-bold">
         Coming Soon
       </h2>
-      <h1 class="text-5xl font-extrabold mb-4 w-3/5 pt-4 text-lime-800">
-        Our Brand new website is on the way
+      <h1
+        class="text-5xl font-extrabold mb-4 capitalize tracking-tight pt-4 text-lime-800"
+      >
+        Our Brand new<br />website is on the way
       </h1>
       <p class="mb-6 text-gray-500 -mt-1">
         We are working hard to bring you something amazing. Stay tuned!
       </p>
-      <form action="#" method="POST" class="flex items-center gap-3">
+      <form id="form" class="flex items-center gap-3">
         <input
+          id="email"
           type="email"
+          name="Email"
           placeholder="Enter your email"
           class="p-2 border border-gray-300 rounded w-64"
           required
@@ -49,5 +53,6 @@
         </button>
       </form>
     </div>
+    <script src="emailToSheet.js"></script>
   </body>
 </html>
