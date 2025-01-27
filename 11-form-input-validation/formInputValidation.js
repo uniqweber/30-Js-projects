@@ -85,6 +85,22 @@ function validateMessage(message) {
   }
 }
 
+function addEventListeners() {
+  inputName.addEventListener("input", () => validateName(inputName.value));
+  inputEmail.addEventListener("input", () => validateEmail(inputEmail.value));
+  inputPassword.addEventListener("input", () =>
+    validatePassword(inputPassword.value)
+  );
+  inputNumber.addEventListener("input", () =>
+    validateNumber(inputNumber.value)
+  );
+  inputMessage.addEventListener("input", () =>
+    validateMessage(inputMessage.value)
+  );
+}
+
+addEventListeners();
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   validateName(inputName.value);
@@ -94,11 +110,9 @@ form.addEventListener("submit", (e) => {
   validateMessage(inputMessage.value);
 
   if (
-    nameError.textContent === "" &&
-    emailError.textContent === "" &&
-    passwordError.textContent === "" &&
-    numberError.textContent === "" &&
-    messageError.textContent === ""
+    ![nameError, emailError, passwordError, numberError, messageError].some(
+      (err) => err.textContent
+    )
   ) {
     console.log(userData);
     form.reset();
