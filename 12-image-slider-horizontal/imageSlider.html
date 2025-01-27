@@ -28,7 +28,7 @@
         <div class="h-96 w-full rounded-xl overflow-hidden">
           <div
             id="slider"
-            class="h-full w-full flex transition-transform duration-300 ease-in-out"
+            class="h-full w-full flex transition-transform duration-1000 ease-in-out"
           >
             <div>
               <img src="https://picsum.photos/id/237/200/300" alt="" />
@@ -38,6 +38,21 @@
             </div>
             <div>
               <img src="https://picsum.photos/id/239/200/300" alt="" />
+            </div>
+            <div>
+              <img src="https://picsum.photos/id/240/200/300" alt="" />
+            </div>
+            <div>
+              <img src="https://picsum.photos/id/241/200/300" alt="" />
+            </div>
+            <div>
+              <img src="https://picsum.photos/id/242/200/300" alt="" />
+            </div>
+            <div>
+              <img src="https://picsum.photos/id/243/200/300" alt="" />
+            </div>
+            <div>
+              <img src="https://picsum.photos/id/244/200/300" alt="" />
             </div>
           </div>
         </div>
@@ -49,34 +64,7 @@
         </button>
       </div>
     </main>
-    <script>
-      const slider = document.getElementById("slider");
-      const leftButton = document.getElementById("leftButton");
-      const rightButton = document.getElementById("rightButton");
-
-      const slides = slider.children.length - 1;
-      let currentSlide = 0;
-
-      function moveSlider(index) {
-        slider.style.transform = `translateX(-${index * 100}%)`;
-      }
-      leftButton.addEventListener("click", () => {
-        if (currentSlide > 0) {
-          currentSlide--;
-        } else {
-          currentSlide = slides - 1;
-        }
-
-        moveSlider(currentSlide);
-      });
-      rightButton.addEventListener("click", () => {
-        if (currentSlide < slides) {
-          currentSlide++;
-        } else {
-          currentSlide = 0;
-        }
-        moveSlider(currentSlide);
-      });
-    </script>
+    <script src="imageSlider.js"></script>
   </body>
 </html>
+
